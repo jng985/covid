@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:requests/requests.dart';
 
@@ -17,6 +18,7 @@ class _StatesState extends State<States> {
   String _positiveInc = '';
   String _hosp_cur = '';
   String _date = '';
+  String _site = '';
   void _get_state_current(String state) async {
     var url = "https://covidtracking.com/api/v1/states/$state/current.json";
     var r = await Requests.get(url);
@@ -34,6 +36,7 @@ class _StatesState extends State<States> {
     var _notes = r.json()['notes'];
     setState(() {
       _state = state;
+      _site = r.json()['covid19Site'].toString();
       _notes = _notes.split('\n').reversed.join('\n');
       _state_info_str = _notes.replaceAll('\n', '\n\n');
     });
@@ -94,8 +97,35 @@ class _StatesState extends State<States> {
                   Text(_hosp_cur, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
                 ],
               )),
+          Container(
+              margin: const EdgeInsets.all(20),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  SizedBox(height: 20.0,),
+                  Text('Covid-19 State Website', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+                  SizedBox(height: 5.0,),
+                  Text(_site, style: TextStyle(fontSize: 9, fontWeight: FontWeight.bold, color: Colors.blue),),
+                ],
+              )),
           ]),
       ],
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

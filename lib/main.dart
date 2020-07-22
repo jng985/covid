@@ -10,6 +10,8 @@ import './state.dart';
 import './mymap.dart';
 import './journal.dart';
 import './circles.dart';
+import './group.dart';
+import './carousel.dart';
 
 void main() {
   runApp(MyApp());
@@ -74,26 +76,49 @@ class _MyAppState extends State<MyApp> {
         body: [
           States(),
           MyMap(),
-          Circles(),
+          Text(''),
           Column(
             children: [
-              SizedBox(height: 10,),
-              CircleAvatar(
-                backgroundColor: Colors.brown.shade800,
-                child: Text('Me',
-                  textWidthBasis: TextWidthBasis.longestLine,),
+              Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 30),
+                  child: Container(
+                    height: 100,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        CircleAvatar(
+                          radius: 35.0,
+                          backgroundColor: Colors.brown.shade800,
+                          child: Text('Me',
+                            textWidthBasis: TextWidthBasis.longestLine,),
+                        ),
+                        Spacer(),
+                        Text('My Journal', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
+                        Spacer(),
+                      ],
+                    ),
+                    width: double.infinity,)
               ),
               SizedBox(height: 10,),
-              Text('My Journal', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
-              SizedBox(height: 20,),
-              Journal(),
-              Journal(),
-              Journal(),
-              Journal(),
-              Journal(),
+//              Group(),
+              CircleCarousel(),
+              Row(
+                children: <Widget>[
+                  Spacer(),
+                  FloatingActionButton(
+                    child: IconButton(
+                      icon: Icon(Icons.add),
+                      iconSize: 40.0,
+                      onPressed: () {},
+                      focusColor: Colors.blueGrey,
+                    ),
+                  ),
+                  Spacer()
+                ],
+              )
             ]
           ),
-          Center(child: States(),)
+          Center(child: Text(''),)
         ][_current_index],
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: _current_index,

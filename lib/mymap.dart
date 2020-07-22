@@ -50,7 +50,7 @@ class _MyMapState extends State<MyMap> {
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
                     elevation: 16,
                     child: Container(
-                      height: 440,
+                      height: 460,
                       width: 400,
                       child: Padding(
                         padding: const EdgeInsets.all(10),
@@ -59,7 +59,7 @@ class _MyMapState extends State<MyMap> {
                             Text('My Status', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
                             Row(
                               children: <Widget>[
-                                Text('I tested positive for COVID - Nasal'),
+                                Text('I tested positive for COVID - Nasal',style: TextStyle(fontSize: 12),),
                                 Spacer(),
                                 IconButton(icon: Icon(Icons.check_box_outline_blank),
                                 onPressed: () {},)
@@ -67,7 +67,7 @@ class _MyMapState extends State<MyMap> {
                             ),
                             Row(
                               children: <Widget>[
-                                Text('I have COVID antibodies'),
+                                Text('I have COVID antibodies',style: TextStyle(fontSize: 12),),
                                 Spacer(),
                                 IconButton(icon: Icon(Icons.check_box_outline_blank),
                                   onPressed: () {},)
@@ -75,7 +75,7 @@ class _MyMapState extends State<MyMap> {
                             ),
                             Row(
                               children: <Widget>[
-                                Text('I tested negative for COVID - Nasal'),
+                                Text('I tested negative for COVID - Nasal',style: TextStyle(fontSize: 12),),
                                 Spacer(),
                                 IconButton(icon: Icon(Icons.check_box_outline_blank),
                                   onPressed: () {},)
@@ -83,7 +83,7 @@ class _MyMapState extends State<MyMap> {
                             ),
                             Row(
                               children: <Widget>[
-                                Text('I tested negative for COVID - Antibodies'),
+                                Text('I tested negative for COVID - Antibodies',style: TextStyle(fontSize: 12),),
                                 Spacer(),
                                 IconButton(icon: Icon(Icons.check_box_outline_blank),
                                   onPressed: () {},)
@@ -91,7 +91,7 @@ class _MyMapState extends State<MyMap> {
                             ),
                             Row(
                               children: <Widget>[
-                                Text('I have COVID symptoms & tested positive - Nasal'),
+                                Text('I have COVID symptoms & tested positive - Nasal',style: TextStyle(fontSize: 12),),
                                 Spacer(),
                                 IconButton(icon: Icon(Icons.check_box_outline_blank),
                                   onPressed: () {},)
@@ -99,7 +99,7 @@ class _MyMapState extends State<MyMap> {
                             ),
                             Row(
                               children: <Widget>[
-                                Text('I have COVID symptoms, no test'),
+                                Text('I have COVID symptoms, no test',style: TextStyle(fontSize: 12),),
                                 Spacer(),
                                 IconButton(icon: Icon(Icons.check_box_outline_blank),
                                   onPressed: () {},)
@@ -107,7 +107,7 @@ class _MyMapState extends State<MyMap> {
                             ),
                             Row(
                               children: <Widget>[
-                                Text('I just tested negative after being positive and recuperating'),
+                                Text('I just tested negative after being positive \nand recuperating',style: TextStyle(fontSize: 12),),
                                 Spacer(),
                                 IconButton(icon: Icon(Icons.check_box_outline_blank),
                                   onPressed: () {},)

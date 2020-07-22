@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './group.dart';
 
 class Circles extends StatefulWidget {
   @override
@@ -14,6 +15,7 @@ class _CircleState extends State<Circles> {
       child: Column(
         children: <Widget>[
           Text('My Circles', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
+          Group(),
           Container(height: 200,
           child: ListView(children: <Widget>[Text('hi'), Text('hello')],),),
           Container(height: 200,
@@ -60,7 +62,7 @@ class _CircleState extends State<Circles> {
                                       onPressed: () {},)
                                   ],
                                 ),
-                                SizedBox(height: 100,),
+                                SizedBox(height: 20,),
                                 IconButton(icon: Icon(Icons.check_circle),
                                   iconSize: 50,
                                   onPressed: () {},),
@@ -72,43 +74,6 @@ class _CircleState extends State<Circles> {
                   }
               );
             },
-          ),
-          Container(
-            padding: const EdgeInsets.all(32),
-            child: Row(
-              children: [
-                Expanded(
-                  /*1*/
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      /*2*/
-                      Container(
-                        padding: const EdgeInsets.only(bottom: 8),
-                        child: Text(
-                          'Oeschinen Lake Campground',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                      Text(
-                        'Kandersteg, Switzerland',
-                        style: TextStyle(
-                          color: Colors.grey[500],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                /*3*/
-                Icon(
-                  Icons.star,
-                  color: Colors.red[500],
-                ),
-                Text('41'),
-              ],
-            ),
           ),
         ],
       ),
