@@ -46,7 +46,14 @@ class CircleCarousel extends StatelessWidget {
                     width: 220,
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(10.0)
+                      borderRadius: BorderRadius.circular(10.0),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.blueGrey,
+                            offset: Offset(0.0, 1.0),
+                            blurRadius: 3.0,
+                          )
+                        ]
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -61,9 +68,9 @@ class CircleCarousel extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20.0),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black26,
-                          offset: Offset(0.0, 2.0),
-                          blurRadius: 6.0,
+                          color: Colors.blueGrey,
+                          offset: Offset(0.0, 1.0),
+                          blurRadius: 3.0,
                           )
                       ]
                     ),

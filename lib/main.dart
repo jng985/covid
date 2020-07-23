@@ -12,7 +12,8 @@ import './journal.dart';
 import './circles.dart';
 import './group.dart';
 import './carousel.dart';
-
+import './CategorySelector.dart';
+import './account.dart';
 void main() {
   runApp(MyApp());
 }
@@ -63,20 +64,51 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Covid App',
       theme: ThemeData(
         primaryColor: Colors.red[400],
-//        accentColor: Colors.redAccent,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: Center(child: Text('Covid Social Tracking'),),
+          title: Center(child: Text('Covid Social Tracking App'),),
         ),
         body: [
           States(),
           MyMap(),
-          Text(''),
+          Container(
+            margin: EdgeInsets.all(10.0),
+            child: Column(
+              children: <Widget>[
+                SizedBox(height: 15.0,),
+                Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                  CircleAvatar(
+                    child: Text('Me'),
+                    radius: 40,
+                    backgroundColor: Colors.blue,
+                  ),
+                  Text('My Circles        ',
+                    style: TextStyle(fontSize: 30),),
+                ]),
+                Group(),
+                SizedBox(height: 50.0,),
+                Container(height: 60.0,
+                    child:
+                RaisedButton(
+                  child: Text('Create New Circle',
+                    style: TextStyle(
+                        fontSize: 20,
+                        letterSpacing: 1.2,
+                        color: Colors.white), ),
+                  color: Colors.lightGreen,
+                  onPressed: () {},
+                ))
+              ],
+            ),
+          ),
+//          CategorySelector(),
           Column(
             children: [
               Padding(
@@ -88,12 +120,15 @@ class _MyAppState extends State<MyApp> {
                       children: <Widget>[
                         CircleAvatar(
                           radius: 35.0,
-                          backgroundColor: Colors.brown.shade800,
+                          backgroundColor: Colors.blue,
                           child: Text('Me',
                             textWidthBasis: TextWidthBasis.longestLine,),
                         ),
                         Spacer(),
-                        Text('My Journal', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
+                        Text('My Journal',
+                            style: TextStyle(
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold)),
                         Spacer(),
                       ],
                     ),
@@ -118,14 +153,15 @@ class _MyAppState extends State<MyApp> {
               )
             ]
           ),
-          Center(child: Text(''),)
+Account(),
+//          Center(child: Text(''),)
         ][_current_index],
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: _current_index,
           items: [
             BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              title: Text('Home'),
+              icon: Icon(Icons.location_city),
+              title: Text('State Info'),
               backgroundColor: Colors.red[400]
             ),
             BottomNavigationBarItem(

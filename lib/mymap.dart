@@ -12,13 +12,47 @@ class MyMap extends StatefulWidget {
 class _MyMapState extends State<MyMap> {
   var _myStatus = null;
   var _show_test_centers = false;
+  Set<Polyline> _polylines = {};
   void _req_location() async {
     await LocationPermissions().requestPermissions();
   }
   GoogleMapController mapController;
+  static const LatLng _center = const LatLng(45.521563, -122.677433);
 
-  final LatLng _center = const LatLng(40.688841, -74.044015);
+  final Set<Marker> _markers = {};
 
+  LatLng _lastMapPosition = _center;
+
+  void _addLine(LatLng start, LatLng end) {
+    setState(() {
+      _polylines.add(Polyline(
+//          polylineId: PolylineId(segName),
+          visible: true,
+          points: [start, end],
+          width: 8,
+          color: Colors.green));
+    });
+  }
+
+  void _onCameraMove(CameraPosition position) {
+    _lastMapPosition = position.target;
+  }
+  void _onAddMarkerButtonPressed() {
+    setState(() {
+//      _addLine(LatLng(40.712775122806555, -74.00597155094147), _lastMapPosition);
+      print(_lastMapPosition);
+      _markers.add(Marker(
+        // This marker id can be anything that uniquely identifies each marker.
+        markerId: MarkerId(_lastMapPosition.toString()),
+        position: _lastMapPosition,
+        infoWindow: InfoWindow(
+          title: 'Really cool place',
+          snippet: '5 Star Rating',
+        ),
+        icon: BitmapDescriptor.defaultMarker,
+      ));
+    });
+  }
   void _onMapCreated(GoogleMapController controller) {
     mapController = controller;
   }
@@ -28,17 +62,28 @@ class _MyMapState extends State<MyMap> {
         children:[
           Container(height:300,
           child: GoogleMap(
+              polylines: _polylines,
               myLocationEnabled: true,
               onMapCreated: _onMapCreated,
+              markers: _markers,
+              onCameraMove: _onCameraMove,
               initialCameraPosition: CameraPosition(
                 target: _center,
                 zoom: 11.0,
               )
           ),),
+          
           Container(
-            height: 250,
-            child: Text('Covid Map', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
+            margin: EdgeInsets.all(20.0),
+            height: 40,
+            child: RaisedButton(
+              color: Colors.blue,
+              onPressed: (){
+                _onAddMarkerButtonPressed();
+              },
+            ),
           ),
+
           FloatingActionButton(
             child: Icon(Icons.add_circle),
             backgroundColor: Colors.green,

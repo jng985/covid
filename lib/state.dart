@@ -19,10 +19,15 @@ class _StatesState extends State<States> {
   String _hosp_cur = '';
   String _date = '';
   String _site = '';
+  void _get_line() async {
+
+  }
+
   void _get_state_current(String state) async {
     var url = "https://covidtracking.com/api/v1/states/$state/current.json";
     var r = await Requests.get(url);
     r.raiseForStatus();
+    print(r.json().toString());
     setState(() {
       _positiveInc = r.json()['positiveIncrease'].toString();
       _positive = r.json()['positive'].toString();
@@ -34,6 +39,7 @@ class _StatesState extends State<States> {
     var r = await Requests.get(url);
     r.raiseForStatus();
     var _notes = r.json()['notes'];
+    print(r.json().toString());
     setState(() {
       _state = state;
       _site = r.json()['covid19Site'].toString();
