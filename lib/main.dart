@@ -14,6 +14,7 @@ import './group.dart';
 import './carousel.dart';
 import './CategorySelector.dart';
 import './account.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -27,35 +28,13 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   var _current_index = 0;
-  var _state = 'ny';
-  var _emoji = '';
-  String _state_info_str = 'Select State';
-  String _positive = '';
-  void _get_state_current(String state) async {
-    var url = "https://covidtracking.com/api/v1/states/$state/current.json";
-    var r = await Requests.get(url);
-    r.raiseForStatus();
-    setState(() {
-      _positive = r.json()['positive'].toString();
-    });
-  }
-  void _get_state(String state) async {
-    var url = "https://covidtracking.com/api/v1/states/$state/info.json";
-    var r = await Requests.get(url);
-    r.raiseForStatus();
-    var _notes = r.json()['notes'];
-    setState(() {
-      _state = state;
-      _notes = _notes.split('\n').reversed.join('\n');
-      _state_info_str = _notes.replaceAll('\n', '\n\n');
-    });
-  }
+
   void _req_location() async {
     await LocationPermissions().requestPermissions();
   }
-  GoogleMapController mapController;
-
   final LatLng _center = const LatLng(40.688841, -74.044015);
+
+  GoogleMapController mapController;
 
   void _onMapCreated(GoogleMapController controller) {
     mapController = controller;
@@ -72,7 +51,18 @@ class _MyAppState extends State<MyApp> {
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: Center(child: Text('Covid Social Tracking App'),),
+
+          title: Center(child:
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  Image.asset('assets/adtm.jpg'),
+                  Text('Covid Social \nTracking App'),
+                ],
+              ),
+//            Text('Covid Social Tracking App'),
+
+          ),
         ),
         body: [
           States(),
@@ -84,16 +74,17 @@ class _MyAppState extends State<MyApp> {
                 SizedBox(height: 15.0,),
                 Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
-                  CircleAvatar(
-                    child: Text('Me'),
-                    radius: 40,
-                    backgroundColor: Colors.blue,
-                  ),
+                      Image.asset('assets/p8.jpg'),
+//                  CircleAvatar(
+//                    child: Text('Me'),
+//                    radius: 40,
+//                    backgroundColor: Colors.blue,
+//                  ),
                   Text('My Circles        ',
                     style: TextStyle(fontSize: 30),),
                 ]),
                 Group(),
-                SizedBox(height: 50.0,),
+                SizedBox(height: 10.0,),
                 Container(height: 60.0,
                     child:
                 RaisedButton(
@@ -118,12 +109,13 @@ class _MyAppState extends State<MyApp> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        CircleAvatar(
-                          radius: 35.0,
-                          backgroundColor: Colors.blue,
-                          child: Text('Me',
-                            textWidthBasis: TextWidthBasis.longestLine,),
-                        ),
+                        Image.asset('assets/p8.jpg'),
+//                        CircleAvatar(
+//                          radius: 35.0,
+//                          backgroundColor: Colors.blue,
+//                          child: Text('Me',
+//                            textWidthBasis: TextWidthBasis.longestLine,),
+//                        ),
                         Spacer(),
                         Text('My Journal',
                             style: TextStyle(

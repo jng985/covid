@@ -7,23 +7,25 @@ class Group extends StatelessWidget {
         margin: EdgeInsets.all(20.0),
         child: Container(child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: <Widget>[
         IconButton(icon: Icon(Icons.people)),
-          CircleAvatar(child: Text('1'), radius: 15, backgroundColor: Colors.teal,),
-          CircleAvatar(child: Text('2'), radius: 15, backgroundColor: Colors.teal,),
-          CircleAvatar(child: Text('3'), radius: 15, backgroundColor: Colors.teal,),
-          CircleAvatar(child: Text('4'), radius: 15, backgroundColor: Colors.teal,),
-          CircleAvatar(child: Text('5'), radius: 15, backgroundColor: Colors.teal,),
+          Image.asset('assets/p1.jpg', height: 40,),
+          Image.asset('assets/p3.jpg', height: 40,),
+          Image.asset('assets/p4.jpg', height: 40,),
+          Image.asset('assets/p6.jpg', height: 40,),
+//          CircleAvatar(child: Text('1'), radius: 15, backgroundColor: Colors.teal,),
+//          CircleAvatar(child: Text('2'), radius: 15, backgroundColor: Colors.teal,),
+//          CircleAvatar(child: Text('3'), radius: 15, backgroundColor: Colors.teal,),
+//          CircleAvatar(child: Text('4'), radius: 15, backgroundColor: Colors.teal,),
+//          CircleAvatar(child: Text('5'), radius: 15, backgroundColor: Colors.teal,),
         ],))
     ),
     Container(
         margin: EdgeInsets.all(20.0),
         child: Container(child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: <Widget>[
           IconButton(icon: Icon(Icons.people)),
-          CircleAvatar(child: Text('1'), radius: 15, backgroundColor: Colors.pink,),
-          CircleAvatar(child: Text('2'), radius: 15, backgroundColor: Colors.pink,),
-          CircleAvatar(child: Text('3'), radius: 15, backgroundColor: Colors.pink,),
-          CircleAvatar(child: Text('4'), radius: 15, backgroundColor: Colors.pink,),
-          CircleAvatar(child: Text('5'), radius: 15, backgroundColor: Colors.pink,),
-          CircleAvatar(child: Text('6'), radius: 15, backgroundColor: Colors.pink,),
+          Image.asset('assets/p9.jpg', height: 40,),
+          Image.asset('assets/p10.jpg', height:40,),
+          Image.asset('assets/p5.jpg', height: 40,),
+
 
         ],))
     ),
@@ -42,10 +44,11 @@ class Group extends StatelessWidget {
       child:Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children:[
-            Journal('Circle 1','Family'),
+            Journal('Circle 1','Friends'),
           ]
       )),
-    Journal('Circle 2', 'Friends'), Journal('Circle 3','Co-Workers')];
+    Journal('Circle 2', 'Family'),
+    Journal('Circle 3','Co-Workers')];
 
 
   @override
@@ -53,7 +56,7 @@ class Group extends StatelessWidget {
     return Padding(
         padding: EdgeInsets.symmetric(vertical: 10),
         child: Container(
-          height: 400,
+          height: 450,
           child: ListView.builder(
               scrollDirection: Axis.vertical,
               itemCount: 3,

@@ -29,6 +29,8 @@ class SimpleLineChart extends StatelessWidget {
       new LinearSales(1, 25),
       new LinearSales(2, 100),
       new LinearSales(3, 75),
+      new LinearSales(3, 125),
+
     ];
 
     return [

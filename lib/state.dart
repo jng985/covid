@@ -51,7 +51,10 @@ class _StatesState extends State<States> {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
+        SizedBox(height: 5,),
+        Center(child: Text("State Level COVID Updates", style: TextStyle(fontSize: 26),),),
         Center(child: DropdownButton(
+          iconSize: 25,
           hint: Text('State'),
           value: _state,
           items: <String>['ny', 'ca', 'fl', 'nj'].map((String value) {
@@ -73,7 +76,7 @@ class _StatesState extends State<States> {
               height: 270,
               margin: const EdgeInsets.only(left: 20.0, right: 20.0),
               child:
-              SingleChildScrollView(child: Text(_state_info_str))
+              SingleChildScrollView(child: Text(_state_info_str, style: TextStyle(fontSize: 20),))
           ),
           SizedBox(height: 20,),
           Container(
@@ -81,8 +84,8 @@ class _StatesState extends State<States> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Text('Positive: ', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
-              Text(_positive, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+              Text('Positive: ', style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),),
+              Text(_positive, style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),),
             ],
           )),
           Container(
@@ -90,8 +93,8 @@ class _StatesState extends State<States> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text('Positive Increase: ', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
-                  Text(_positiveInc, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                  Text('Positive Increase: ', style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),),
+                  Text(_positiveInc, style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),),
                 ],
               )),
           Container(
@@ -99,8 +102,8 @@ class _StatesState extends State<States> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text('Hospitalized Currently: ', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
-                  Text(_hosp_cur, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                  Text('Hospitalized Currently: ', style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),),
+                  Text(_hosp_cur, style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),),
                 ],
               )),
           Container(

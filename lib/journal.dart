@@ -14,8 +14,13 @@ class Journal extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
+//            CircleAvatar(
+//                child: Text(_journalText, style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),),
+//                radius: 70,
+//                backgroundColor: Colors.blue,
+//              ),
               Text(_date, style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
-              Text(_journalText),
+              Text(_journalText, style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),),
               IconButton(
                 icon: Icon(Icons.arrow_forward_ios),
               ),
